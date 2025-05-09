@@ -1,4 +1,4 @@
-<script>
+
     let start = new Date().getTime();
     let score = 0;
     let fastest = null;
@@ -79,4 +79,4 @@
     };
 
     move();
-</script>
+
