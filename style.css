@@ -49,16 +49,43 @@ h1 {
                        79% 91%, 50% 70%, 21% 91%, 32% 57%, 
                        2% 35%, 39% 35%);
     opacity: 0.7;
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s ease;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
     cursor: pointer;
-    animation: popIn 0.4s ease-out;
+    animation: glowPopIn 0.5s ease-out;
 }
 
-/* On hover, increase opacity */
+/* On hover: increase opacity and glow */
 .box:hover {
     opacity: 1;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.8), 
+                0 0 60px rgba(255, 255, 255, 0.6);
 }
+
+/* Animation on appear */
+@keyframes glowPopIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+        box-shadow: none;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.7;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    }
+}
+#stats {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: bold;
+}
+
 
 /* transitions */
 @keyframes fadeInUp {
