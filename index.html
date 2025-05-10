@@ -1,48 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reaction Tester Project </title>
-    <link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reaction Tester Project</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <header>
-        <h1 id="heading">Reaction Tester </h1>
-    </header>
-    <article>
-        <i>
-            <p id="text">Click on the Star as fast as you can! </p>
-        </i>
-    </article>
-    <section id="stats">
+  <header>
+    <h1>Reaction Tester</h1>
+  </header>
+
+  <section>
+    <p id="text">Click on the Star as fast as you can !</p>
+  </section>
+
+  <section id="stats">
     <p>Score: <span id="score">0</span></p>
-    <p>Fastest Time: <span id="fastest">--</span> sec</p>
-</section>
-<div id="controls">
+    <p id="lastTime">Last Reaction Time: -- sec</p>
+  </section>
+
+  <section id="fastestTime">
+    Fastest Time:<span id="fastest">--</span> sec
+  </section>
+
+  <section id="controls">
     <button id="resetBtn">Reset</button>
-</div>
+  </section>
 
-<section id="leaderboard">
-    <h3>Top 3 Fastest Times</h3>
-    <ol id="topTimes">
-        <li>--</li>
-        <li>--</li>
-        <li>--</li>
-    </ol>
-</section>
+  <main>
+    <div class="box" id="boxs"></div>
+  </main>
 
-    <main>
-        <div class="box" id="boxs"></div>
-    </main>
-
-    <script src="script.js"></script>
-
-
+  <script src="script.js"></script>
 </body>
-
-
 </html>
