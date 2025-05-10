@@ -2,7 +2,7 @@
     let start = new Date().getTime();
     let score = 0;
     let fastest = null;
-    let topTimes = [];
+  
 
     function getRandomColor() {
         const letters = '0123456789ABCDEF';
@@ -29,54 +29,48 @@
         start = new Date().getTime();
     }
 
-    function updateLeaderboard(time) {
-        topTimes.push(time);
-        topTimes.sort((a, b) => a - b);
-        topTimes = topTimes.slice(0, 3); // Top 3
+    
 
-        const list = document.getElementById("topTimes");
-        list.innerHTML = "";
-        topTimes.forEach(t => {
-            const li = document.createElement("li");
-            li.textContent = t.toFixed(3) + " sec";
-            list.appendChild(li);
-        });
+   document.getElementById("boxs").onclick = function () {
+    const end = new Date().getTime();
+    const timeTaken = (end - start) / 1000;  // ✅ Move this up
+
+    this.style.display = "none";
+
+    // Update score
+    score++;
+    document.getElementById("score").textContent = score;
+
+    // Update fastest time
+    if (fastest === null || timeTaken < fastest) {
+        fastest = timeTaken;
+        document.getElementById("fastest").textContent = fastest.toFixed(3);
     }
 
-    document.getElementById("boxs").onclick = function () {
-        const end = new Date().getTime();
-        const timeTaken = (end - start) / 1000;
+    // Show last reaction time
+    document.getElementById("lastTime").textContent = "Last Reaction Time: " + timeTaken.toFixed(3) + " sec";
 
-        this.style.display = "none";
-        alert(timeTaken + " second");
+    move();
 
-        // Update score
-        score++;
-        document.getElementById("score").textContent = score;
 
-        // Update fastest time
-        if (fastest === null || timeTaken < fastest) {
-            fastest = timeTaken;
-            document.getElementById("fastest").textContent = fastest.toFixed(3);
-        }
+    // Trigger animation
+    document.getElementById("fastest").classList.remove("pulse");
+    void document.getElementById("fastest").offsetWidth; // Re-trigger CSS animation
+    document.getElementById("fastest").classList.add("pulse");
 
-        // Update leaderboard
-        updateLeaderboard(timeTaken);
 
-        move();
-    };
+};
+
 
     document.getElementById("resetBtn").onclick = function () {
         score = 0;
         fastest = null;
-        topTimes = [];
+        
 
         document.getElementById("score").textContent = "0";
         document.getElementById("fastest").textContent = "--";
-        document.getElementById("topTimes").innerHTML = "<li>--</li><li>--</li><li>--</li>";
 
         move();
     };
 
     move();
-
